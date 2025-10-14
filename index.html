@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flyon | Elevate Your Perspective</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#0a0a0a',
+                        'secondary-dark': '#111827',
+                        'accent-blue': '#00e0ff',
+                        'text-light': '#e5e7eb',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        /* Custom Glowing/Accent Effect */
+        .glow-border {
+            box-shadow: 0 0 10px rgba(0, 224, 255, 0.5), 0 0 20px rgba(0, 224, 255, 0.2);
+            border: 1px solid rgba(0, 224, 255, 0.3);
+        }
+        .header-bg {
+            background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(10, 10, 10, 0.9) 100%);
+        }
+        .text-gradient {
+            background-image: linear-gradient(90deg, #00e0ff, #5cb8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-primary-dark text-text-light font-sans antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="header-bg sticky top-0 z-50 shadow-lg backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="#" class="text-3xl font-extrabold text-accent-blue tracking-tighter">
+                    Flyon<span class="text-text-light font-light">.</span>
+                </a>
+                <nav class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8 text-lg font-medium">
+                        <a href="#products" class="text-text-light hover:text-accent-blue transition duration-300">Products</a>
+                        <a href="#about" class="text-text-light hover:text-accent-blue transition duration-300">Company</a>
+                        <a href="#support" class="text-text-light hover:text-accent-blue transition duration-300">Support</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative">
+        
+        <!-- Hero Section -->
+        <section class="relative h-[80vh] flex items-center justify-center overflow-hidden">
+            <!-- 图片路径已更新为: assets/hero-drone.jpg -->
+            <img id="hero-image" src="assets/hero-drone.jpg" alt="Futuristic Flyon Drone" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000" />
+            <div class="relative z-10 text-center max-w-4xl px-4">
+                <h1 class="text-6xl md:text-8xl font-black mb-4 tracking-tighter">
+                    <span class="text-gradient">FLYON</span>
+                </h1>
+                <p class="text-3xl md:text-4xl font-light text-text-light">
+                    Elevate Your Perspective. Secure Your Data.
+                </p>
+                <!-- 静态文本内容 -->
+                <div id="hero-subtitle" class="mt-6 text-xl text-gray-400 font-medium">
+                    Pioneering Autonomous Flight and Secure Data Intelligence.
+                </div>
+                <a href="#products" class="mt-10 inline-block px-8 py-3 rounded-full text-lg font-bold bg-accent-blue text-primary-dark shadow-lg hover:shadow-accent-blue/50 transition duration-300 transform hover:scale-105">
+                    Explore Technology
+                </a>
+            </div>
+        </section>
+
+        <!-- Product Introduction Section -->
+        <section id="products" class="py-24 bg-secondary-dark border-t border-b border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16 items-center">
+                <div class="space-y-6">
+                    <h2 class="text-5xl font-extrabold tracking-tighter text-text-light">
+                        <span class="text-gradient">Flagship</span> Products
+                    </h2>
+                    <!-- 静态文本内容 -->
+                    <h3 id="product-title" class="text-3xl font-semibold text-accent-blue">Aether Scout: The Apex of Surveillance</h3>
+                    <p id="product-content" class="text-lg text-gray-300 leading-relaxed">
+                        The Aether Scout redefines aerial reconnaissance, seamlessly merging military-grade sensor fusion with proprietary AI-driven anomaly detection. Engineered from aerospace-grade carbon composites, it delivers unparalleled operational range, stealth capabilities, and real-time encrypted data streaming. This is not just a drone; it is the definitive platform for mission-critical aerial intelligence.
+                    </p>
+                </div>
+                <div class="flex justify-center">
+                    <div class="rounded-xl overflow-hidden shadow-2xl glow-border w-full max-w-md">
+                         <!-- 图片路径已更新为: assets/product-scout.jpg -->
+                        <img id="product-image" src="assets/product-scout.jpg" alt="Product concept image" class="w-full h-auto object-cover transition-opacity duration-1000" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Introduction Section -->
+        <section id="about" class="py-24 bg-primary-dark">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-5xl font-extrabold tracking-tighter mb-16">
+                    <span class="text-gradient">Our</span> Mission
+                </h2>
+                <div class="max-w-4xl mx-auto space-y-8">
+                    <!-- 静态文本内容 -->
+                    <p id="company-content" class="text-2xl font-light text-gray-300 leading-snug">
+                        Founded by veterans in aerospace engineering and machine learning, Flyon's mission is to secure the skies of tomorrow. We specialize in creating highly reliable, autonomous Unmanned Aerial Systems (UAS) that transform complex challenges—from infrastructure inspection to environmental monitoring—into actionable data. Our commitment is rooted in precision, security, and pushing the boundaries of what is possible in automated flight.
+                    </p>
+                    <a href="#" class="text-xl font-medium text-accent-blue hover:text-white transition duration-300 inline-flex items-center">
+                        Discover Our Story
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service & Support Section -->
+        <section id="support" class="py-24 bg-secondary-dark border-t border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16 items-center">
+                <div class="flex justify-center md:order-last">
+                    <div class="rounded-xl overflow-hidden shadow-2xl glow-border w-full max-w-md">
+                        <!-- 图片路径已更新为: assets/support-console.jpg -->
+                        <img id="support-image" src="assets/support-console.jpg" alt="Support interface concept" class="w-full h-auto object-cover transition-opacity duration-1000" />
+                    </div>
+                </div>
+                <div class="space-y-6 md:order-first">
+                    <h2 class="text-5xl font-extrabold tracking-tighter text-text-light">
+                        <span class="text-gradient">Service</span> & Support
+                    </h2>
+                    <h3 class="text-3xl font-semibold text-accent-blue">Uptime is Everything.</h3>
+                    <!-- 静态文本内容 -->
+                    <p id="support-content" class="text-lg text-gray-300 leading-relaxed">
+                        Maximizing your operational uptime is our highest priority. Flyon's comprehensive support model offers a dedicated Customer Success Engineer, 24/7 global priority response, and predictive maintenance analysis powered by continuous telemetry monitoring. We provide modular, rapid-replacement programs and extensive training, ensuring your fleet remains a formidable, reliable asset for years to come.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary-dark border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500">
+            <p>&copy; 2025 Flyon Drone Technologies. All rights reserved.</p>
+            <p class="text-sm mt-2">Elevate Your Perspective.</p>
+        </div>
+    </footer>
+</body>
+</html>
