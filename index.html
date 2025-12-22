@@ -3,158 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flyon | Elevate Your Perspective</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary-dark': '#0a0a0a',
-                        'secondary-dark': '#111827',
-                        'accent-blue': '#00e0ff',
-                        'text-light': '#e5e7eb',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        
-        /* Custom Glowing/Accent Effect */
-        .glow-border {
-            box-shadow: 0 0 10px rgba(0, 224, 255, 0.5), 0 0 20px rgba(0, 224, 255, 0.2);
-            border: 1px solid rgba(0, 224, 255, 0.3);
-        }
-        .header-bg {
-            background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(10, 10, 10, 0.9) 100%);
-        }
-        .text-gradient {
-            background-image: linear-gradient(90deg, #00e0ff, #5cb8ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-    </style>
+    <title>Galiview Drone - Redefining Aerial Innovation</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for a modern, tech-savvy look -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
-<body class="bg-primary-dark text-text-light font-sans antialiased">
+<body>
 
-    <!-- Header & Navigation -->
-    <header class="header-bg sticky top-0 z-50 shadow-lg backdrop-blur-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <a href="#" class="text-3xl font-extrabold text-accent-blue tracking-tighter">
-                    Flyon<span class="text-text-light font-light">.</span>
-                </a>
-                <nav class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8 text-lg font-medium">
-                        <a href="#products" class="text-text-light hover:text-accent-blue transition duration-300">Products</a>
-                        <a href="#about" class="text-text-light hover:text-accent-blue transition duration-300">Company</a>
-                        <a href="#support" class="text-text-light hover:text-accent-blue transition duration-300">Support</a>
-                    </div>
-                </nav>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="#hero">Galiview Drone</a>
             </div>
-        </div>
+            <ul class="nav-links">
+                <li><a href="#products">Products</a></li>
+                <li><a href="#company">Company</a></li>
+                <li><a href="#support">Services & Support</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main class="relative">
-        
+    <main>
         <!-- Hero Section -->
-        <section class="relative h-[80vh] flex items-center justify-center overflow-hidden">
-            <!-- 图片路径已更新为: assets/hero-drone.jpg -->
-            <img id="hero-image" src="assets/hero-drone.jpg" alt="Futuristic Flyon Drone" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000" />
-            <div class="relative z-10 text-center max-w-4xl px-4">
-                <h1 class="text-6xl md:text-8xl font-black mb-4 tracking-tighter">
-                    <span class="text-gradient">FLYON</span>
-                </h1>
-                <p class="text-3xl md:text-4xl font-light text-text-light">
-                    Elevate Your Perspective. Secure Your Data.
-                </p>
-                <!-- 静态文本内容 -->
-                <div id="hero-subtitle" class="mt-6 text-xl text-gray-400 font-medium">
-                    Pioneering Autonomous Flight and Secure Data Intelligence.
-                </div>
-                <a href="#products" class="mt-10 inline-block px-8 py-3 rounded-full text-lg font-bold bg-accent-blue text-primary-dark shadow-lg hover:shadow-accent-blue/50 transition duration-300 transform hover:scale-105">
-                    Explore Technology
-                </a>
+        <section id="hero" class="hero-section">
+            <div class="hero-content container">
+                <h1>Galiview Drone: Redefining Aerial Innovation</h1>
+                <p>Leading the future of unmanned aerial vehicles with precision, power, and unparalleled vision.</p>
+                <a href="#products" class="btn">Explore Our Technology</a>
             </div>
+            <!-- Background image/video would go here in a real scenario -->
         </section>
 
-        <!-- Product Introduction Section -->
-        <section id="products" class="py-24 bg-secondary-dark border-t border-b border-gray-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16 items-center">
-                <div class="space-y-6">
-                    <h2 class="text-5xl font-extrabold tracking-tighter text-text-light">
-                        <span class="text-gradient">Flagship</span> Products
-                    </h2>
-                    <!-- 静态文本内容 -->
-                    <h3 id="product-title" class="text-3xl font-semibold text-accent-blue">Aether Scout: The Apex of Surveillance</h3>
-                    <p id="product-content" class="text-lg text-gray-300 leading-relaxed">
-                        The Aether Scout redefines aerial reconnaissance, seamlessly merging military-grade sensor fusion with proprietary AI-driven anomaly detection. Engineered from aerospace-grade carbon composites, it delivers unparalleled operational range, stealth capabilities, and real-time encrypted data streaming. This is not just a drone; it is the definitive platform for mission-critical aerial intelligence.
-                    </p>
-                </div>
-                <div class="flex justify-center">
-                    <div class="rounded-xl overflow-hidden shadow-2xl glow-border w-full max-w-md">
-                         <!-- 图片路径已更新为: assets/product-scout.jpg -->
-                        <img id="product-image" src="assets/product-scout.jpg" alt="Product concept image" class="w-full h-auto object-cover transition-opacity duration-1000" />
+        <!-- Product Introduction -->
+        <section id="products" class="section-dark">
+            <div class="container">
+                <h2>Our Cutting-Edge Products</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/600x400/2a2a2a/ffffff?text=Galiview+Pro+Series" alt="Galiview Pro Series Drone">
+                        <h3>Galiview Pro Series: The Visionary</h3>
+                        <p>Experience unparalleled aerial photography and cinematography. The Galiview Pro Series features an advanced 8K camera, 360-degree obstacle avoidance, and a flight time of up to 45 minutes. Engineered for professionals seeking perfection in every shot.</p>
+                        <a href="#" class="btn-small">Learn More</a>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/600x400/2a2a2a/ffffff?text=Galiview+Explorer" alt="Galiview Explorer Drone">
+                        <h3>Galiview Explorer: Adventure Unleashed</h3>
+                        <p>Compact, durable, and ready for any adventure. The Galiview Explorer boasts intuitive controls, a 4K stabilized camera, and extreme portability. Perfect for outdoor enthusiasts and travelers who want to capture their journeys from a new perspective.</p>
+                        <a href="#" class="btn-small">Learn More</a>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/600x400/2a2a2a/ffffff?text=Galiview+AgriTech" alt="Galiview AgriTech Drone">
+                        <h3>Galiview AgriTech: Precision Agriculture</h3>
+                        <p>Revolutionize farming with our specialized agricultural drones. Equipped with multi-spectral sensors and AI analysis, Galiview AgriTech solutions optimize crop health, monitor irrigation, and enhance yield efficiency. Smart farming starts here.</p>
+                        <a href="#" class="btn-small">Learn More</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Company Introduction Section -->
-        <section id="about" class="py-24 bg-primary-dark">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-5xl font-extrabold tracking-tighter mb-16">
-                    <span class="text-gradient">Our</span> Mission
-                </h2>
-                <div class="max-w-4xl mx-auto space-y-8">
-                    <!-- 静态文本内容 -->
-                    <p id="company-content" class="text-2xl font-light text-gray-300 leading-snug">
-                        Founded by veterans in aerospace engineering and machine learning, Flyon's mission is to secure the skies of tomorrow. We specialize in creating highly reliable, autonomous Unmanned Aerial Systems (UAS) that transform complex challenges—from infrastructure inspection to environmental monitoring—into actionable data. Our commitment is rooted in precision, security, and pushing the boundaries of what is possible in automated flight.
-                    </p>
-                    <a href="#" class="text-xl font-medium text-accent-blue hover:text-white transition duration-300 inline-flex items-center">
-                        Discover Our Story
-                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </a>
+        <!-- Company Profile -->
+        <section id="company" class="section-light">
+            <div class="container company-layout">
+                <div class="company-text">
+                    <h2>About Galiview Drone</h2>
+                    <p>At Galiview Drone, we are driven by a passion for innovation and a commitment to excellence in aerial technology. Founded in [Year - e.g., 2015], our mission is to empower individuals and industries with state-of-the-art drone solutions that push the boundaries of what's possible.</p>
+                    <p>Our team comprises visionary engineers, designers, and aviation experts dedicated to crafting drones that are not just tools, but extensions of creativity and efficiency. We believe in meticulous research, rigorous testing, and user-centric design to ensure every Galiview product delivers unparalleled performance, reliability, and an intuitive user experience. From advanced imaging to industrial applications, Galiview Drone is charting the course for the next generation of aerial intelligence.</p>
+                </div>
+                <div class="company-image">
+                    <img src="https://via.placeholder.com/700x500/cccccc/333333?text=Galiview+Headquarters" alt="Galiview Drone Company Headquarters">
                 </div>
             </div>
         </section>
 
-        <!-- Service & Support Section -->
-        <section id="support" class="py-24 bg-secondary-dark border-t border-gray-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16 items-center">
-                <div class="flex justify-center md:order-last">
-                    <div class="rounded-xl overflow-hidden shadow-2xl glow-border w-full max-w-md">
-                        <!-- 图片路径已更新为: assets/support-console.jpg -->
-                        <img id="support-image" src="assets/support-console.jpg" alt="Support interface concept" class="w-full h-auto object-cover transition-opacity duration-1000" />
+        <!-- Services & Support -->
+        <section id="support" class="section-dark">
+            <div class="container">
+                <h2>Services & Support</h2>
+                <p class="section-intro">Your flight journey is important to us. Galiview Drone offers comprehensive support to ensure optimal performance and peace of mind.</p>
+                <div class="support-grid">
+                    <div class="support-item">
+                        <i class="icon fas fa-headset"></i> <!-- Placeholder for Font Awesome icon -->
+                        <h3>Technical Assistance</h3>
+                        <p>Our expert support team is available 24/7 to assist with any technical queries, setup guidance, or troubleshooting to keep your Galiview drone flying smoothly.</p>
+                        <a href="#" class="btn-text">Contact Support &rarr;</a>
                     </div>
-                </div>
-                <div class="space-y-6 md:order-first">
-                    <h2 class="text-5xl font-extrabold tracking-tighter text-text-light">
-                        <span class="text-gradient">Service</span> & Support
-                    </h2>
-                    <h3 class="text-3xl font-semibold text-accent-blue">Uptime is Everything.</h3>
-                    <!-- 静态文本内容 -->
-                    <p id="support-content" class="text-lg text-gray-300 leading-relaxed">
-                        Maximizing your operational uptime is our highest priority. Flyon's comprehensive support model offers a dedicated Customer Success Engineer, 24/7 global priority response, and predictive maintenance analysis powered by continuous telemetry monitoring. We provide modular, rapid-replacement programs and extensive training, ensuring your fleet remains a formidable, reliable asset for years to come.
-                    </p>
+                    <div class="support-item">
+                        <i class="icon fas fa-tools"></i> <!-- Placeholder for Font Awesome icon -->
+                        <h3>Warranty & Repairs</h3>
+                        <p>All Galiview drones come with a robust warranty. We provide efficient repair services and genuine replacement parts to ensure longevity and peak performance.</p>
+                        <a href="#" class="btn-text">View Warranty Policy &rarr;</a>
+                    </div>
+                    <div class="support-item">
+                        <i class="icon fas fa-cloud-download-alt"></i> <!-- Placeholder for Font Awesome icon -->
+                        <h3>Downloads & Resources</h3>
+                        <p>Access the latest firmware updates, user manuals, and creative guides. Stay updated with new features and unlock your drone's full potential.</p>
+                        <a href="#" class="btn-text">Go to Downloads &rarr;</a>
+                    </div>
                 </div>
             </div>
         </section>
-        
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-primary-dark border-t border-gray-800 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500">
-            <p>&copy; 2025 Flyon Drone Technologies. All rights reserved.</p>
-            <p class="text-sm mt-2">Elevate Your Perspective.</p>
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Galiview Drone. All rights reserved. | Innovation in Flight.</p>
         </div>
     </footer>
+
+    <!-- Optional: Font Awesome for icons (if you use them) -->
+    <script src="https://kit.fontawesome.com/YOUR_FONT_AWESOME_KIT_CODE.js" crossorigin="anonymous"></script>
+    <!-- Replace YOUR_FONT_AWESOME_KIT_CODE with your actual kit code if you sign up for Font Awesome -->
 </body>
 </html>
