@@ -294,11 +294,9 @@ section {
 .company-layout .company-text h2 {
     text-align: left;
     margin-bottom: 25px;
-    color: var(--text-dark);
 }
 
 .company-layout .company-text p {
-    color: var(--text-dark);
 }
 
 .company-layout .company-image {
@@ -444,3 +442,4 @@ footer {
     }
 
 }
+
