@@ -288,7 +288,7 @@ section {
 }
 
 .company-layout .company-text {
-    flex: 1;
+    flex: 3;
 }
 
 .company-layout .company-text h2 {
@@ -300,8 +300,8 @@ section {
 }
 
 .company-layout .company-image {
-    flex: 1;
-    min-width: 400px;
+    flex:2;
+    min-width: 300px;
 }
 
 .company-layout .company-image img {
@@ -438,7 +438,13 @@ footer {
         font-size: 0.8em;
     }
     .company-layout .company-image img {
-        margin-top: 30px;
+        width: 100%;        /* 宽度撑满父容器 */
+        max-width: 500px;   /* 设置最大宽度限制，防止图片在宽屏下过大 */
+        height: auto;       /* 高度设为自动，保持图片比例不拉伸 */
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        display: block;     /* 消除图片底部的微小空隙 */
+        margin: 0 auto;     /* 在容器内居中 */
     }
 
 }
