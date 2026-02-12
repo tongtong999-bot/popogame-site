@@ -3,114 +3,633 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veritas Tech - Empower Intelligent Imaging for All</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Popogame - Elevating Your Perspective</title>
+    <meta name="description" content="Discover Popogame's cutting-edge drone technology. Elevate your perspective with our innovative products and unparalleled aerial solutions.">
+    <link rel="icon" href="https://via.placeholder.com/32/007bff/FFFFFF?text=P" type="image/x-icon"> <!-- Placeholder Favicon, if you have a .png favicon, change this line too -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS will go here */
+        /* Basic Reset & Variables */
+        :root {
+            --primary-bg: #0a0a0a;
+            --secondary-bg: #1a1a1a;
+            --accent-color: #007bff; /* A techy blue */
+            --text-color: #f0f0f0;
+            --light-gray: #b0b0b0;
+            --dark-gray: #333;
+            --heading-font: 'Inter', sans-serif;
+            --body-font: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--body-font);
+            color: var(--text-color);
+            background-color: var(--primary-bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            color: var(--text-color);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        h1 { font-size: 3.5em; line-height: 1.1; }
+        h2 { font-size: 2.8em; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
+        h3 { font-size: 1.8em; }
+        h4 { font-size: 1.4em; }
+
+        p {
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #4dc2ff; /* Lighter shade of accent */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0063d3;
+            transform: translateY(-2px);
+        }
+
+        /* Header & Navigation */
+        .header {
+            background-color: var(--primary-bg);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--text-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-list li {
+            margin-left: 40px;
+        }
+
+        .nav-list a {
+            color: var(--light-gray);
+            font-weight: 600;
+            font-size: 1.1em;
+            position: relative;
+        }
+
+        .nav-list a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease;
+        }
+
+        .nav-list a:hover::after,
+        .nav-list a.active::after {
+            width: 100%;
+        }
+        .nav-list a:hover {
+             color: var(--text-color);
+        }
+
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background-color: var(--dark-gray); /* Fallback */
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/hero-drone.png'); /* Updated to .png */
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.6); /* Darken image for better text contrast */
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--text-color);
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5em;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-content p {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            font-weight: 300;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Section Styling */
+        section {
+            background-color: var(--secondary-bg);
+            margin-bottom: 2px; /* Small separator */
+        }
+
+        section:nth-child(even) {
+            background-color: var(--primary-bg);
+        }
+
+        /* Product Overview */
+        #products h2 {
+            margin-bottom: 60px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .product-card {
+            background-color: var(--primary-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:nth-child(even) .product-card {
+             background-color: var(--secondary-bg);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            object-position: center;
+            border-bottom: 1px solid var(--dark-gray);
+        }
+
+        .product-card-content {
+            padding: 25px;
+        }
+
+        .product-card-content h3 {
+            font-size: 1.6em;
+            margin-bottom: 10px;
+        }
+
+        .product-card-content p {
+            font-size: 0.95em;
+            color: var(--light-gray);
+            margin-bottom: 0;
+        }
+
+        /* Company Profile */
+        #company {
+            position: relative;
+            background-image: url('images/company-background.png'); /* Updated to .png */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect */
+            color: var(--text-color);
+            overflow: hidden;
+        }
+        #company::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+            z-index: 1;
+        }
+
+        #company .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+        }
+
+        #company p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: var(--light-gray);
+        }
+        #company h2 {
+            color: var(--accent-color);
+        }
+
+        /* Services & Support */
+        #services {
+             background-image: url('images/services-background.png'); /* Updated to .png */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-color);
+            overflow: hidden;
+            position: relative;
+        }
+        #services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+            z-index: 1;
+        }
+        #services .container {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        #services h2 {
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--accent-color);
+        }
+
+        .service-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 40px;
+        }
+
+        .service-list li {
+            background-color: var(--secondary-bg);
+            padding: 25px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease;
+        }
+        #services .service-list li {
+            background-color: rgba(26, 26, 26, 0.9); /* Slightly transparent for background */
+        }
+
+        .service-list li:hover {
+            transform: translateX(10px);
+        }
+
+        .service-list h3 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        .service-list p {
+            color: var(--light-gray);
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-bg);
+            color: var(--light-gray);
+            padding: 50px 0;
+            text-align: center;
+            border-top: 1px solid var(--dark-gray);
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 1.5em;
+            color: var(--light-gray);
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 3.5em;
+            }
+            .hero-content p {
+                font-size: 1.2em;
+            }
+            h1 { font-size: 3em; }
+            h2 { font-size: 2.2em; }
+        }
+
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+            }
+            .nav-list {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .nav-list li {
+                margin: 0 15px 10px;
+            }
+            .hero {
+                height: 70vh;
+            }
+            .hero-content h1 {
+                font-size: 2.5em;
+            }
+            .hero-content p {
+                font-size: 1em;
+            }
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 1.8em; }
+            .section-padding {
+                padding: 60px 0;
+            }
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            .product-card {
+                margin: 0 auto;
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5em;
+            }
+            .nav-list li {
+                margin: 0 10px 10px;
+            }
+            .hero-content h1 {
+                font-size: 2em;
+            }
+            .hero-content p {
+                font-size: 0.9em;
+            }
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.5em; }
+            .btn {
+                padding: 12px 25px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <a href="#hero">Veritas Tech</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#products">Products</a></li>
-                <li><a href="#company">Company</a></li>
-                <li><a href="#support">Services & Support</a></li>
-            </ul>
-        </nav>
+    <header class="header">
+        <div class="container">
+            <div class="logo">Popogame</div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#company">Company</a></li>
+                    <li><a href="#services">Support</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <section id="hero" class="hero-section">
-            <img class="hero-bg-image" src="assets/hero-handheld.jpg" alt="Veritas Tech intelligent handheld imaging device">
-            <div class="hero-content container">
-                <h1>Empower Intelligent Imaging for All</h1>
-                <p>Crafting innovative handheld devices that turn seamless creativity into extraordinary results.</p>
-                <div class="hero-buttons">
-                    <a href="#products" class="btn btn-primary">Explore Products</a>
-                    <a href="#company" class="btn btn-secondary">Learn More</a>
-                </div>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Elevate Your Perspective with Popogame Drones</h1>
+                <p>Experience the future of flight with cutting-edge technology and breathtaking aerial capabilities.</p>
+                <a href="#products" class="btn">Explore Our Drones</a>
             </div>
         </section>
 
-        <section id="products" class="products-section">
-            <div class="container">
-                <h2 class="section-title">Top Selling Products</h2>
+        <section id="products" class="section-padding">
+            <div class="container text-center">
+                <h2>Product Overview</h2>
+                <p style="max-width: 800px; margin: 0 auto 60px; color: var(--light-gray);">Welcome to Popogame, where the future of flight is taking off. Our drones are meticulously engineered to redefine possibilities, blending cutting-edge AI, superior optics, and intuitive design. From professional cinematography and industrial inspection to exhilarating aerial exploration, Popogame drones deliver unparalleled performance and breathtaking imagery.</p>
+
                 <div class="product-grid">
                     <div class="product-card">
-                        <img src="assets/mic-series.jpg" alt="Mic Series">
-                        <h3>Mic Series</h3>
-                        <p>Professional audio recording solutions designed for crystal-clear sound in both indoor and outdoor scenarios.</p>
+                        <img src="images/aerox-drone.png" alt="Popogame AeroX Drone"> <!-- Updated to .png -->
+                        <div class="product-card-content">
+                            <h3>Popogame AeroX</h3>
+                            <p>The flagship professional cinematic drone, offering 8K stabilized video and 360-degree obstacle sensing.</p>
+                        </div>
                     </div>
                     <div class="product-card">
-                        <img src="assets/action-camera.jpg" alt="Action Camera">
-                        <h3>Action Camera</h3>
-                        <p>Versatile video and audio performance for extreme sports, including diving, skiing, and more.</p>
+                        <img src="images/explorer-drone.png" alt="Popogame Explorer Drone"> <!-- Updated to .png -->
+                        <div class="product-card-content">
+                            <h3>Popogame Explorer</h3>
+                            <p>A rugged, compact drone designed for adventurers, featuring extended flight time and resilient construction for any terrain.</p>
+                        </div>
                     </div>
                     <div class="product-card">
-                        <img src="assets/gimbal-camera.jpg" alt="Gimbal Camera">
-                        <h3>Gimbal Camera</h3>
-                        <p>Flexible high-definition recording with advanced stabilization for diverse creative filming needs.</p>
-                    </div>
-                    <div class="product-card">
-                        <img src="assets/mobile-gimbal.jpg" alt="Mobile Gimbal">
-                        <h3>Mobile Gimbal</h3>
-                        <p>Cinematic smooth footage for mobile content creators, fitting various daily and professional scenarios.</p>
+                        <img src="images/visionary-drone.png" alt="Popogame Visionary Drone"> <!-- Updated to .png -->
+                        <div class="product-card-content">
+                            <h3>Popogame Visionary</h3>
+                            <p>An intelligent inspection drone with thermal imaging capabilities and precision mapping for industrial applications.</p>
+                        </div>
                     </div>
                 </div>
+                <p style="max-width: 800px; margin: 60px auto 0; color: var(--light-gray);">At Popogame, innovation isn't just a word; it's our core principle. We integrate advanced sensor technology, real-time data processing, and robust materials to ensure reliability and precision in every flight. Our commitment is to provide you with tools that are not only powerful but also incredibly easy to master, allowing you to focus on capturing the extraordinary. Discover a world unlocked from above, with Popogame leading the way.</p>
             </div>
         </section>
 
-        <section id="company" class="company-section">
+        <section id="company" class="section-padding">
             <div class="container">
-                <div class="company-content">
-                    <div class="company-text">
-                        <h2 class="section-title">About Veritas Tech</h2>
-                        <p>Founded in late 2024, Veritas Tech is an innovative American startup headquartered in Delaware with an operations center in Los Angeles. Our core team consists of industry veterans from leaders like DJI, Sony, and Xiaomi.</p>
-                        <p>We are a one-stop service center for handheld imaging, spanning R&D, manufacturing, and global logistics. Our mission is to unlock boundless creativity for everyone, everywhere through premium quality and competitive cost.</p>
-                    </div>
-                    <div class="company-image">
-                        <img src="assets/office-la.jpg" alt="Veritas Tech Operations Center">
-                    </div>
-                </div>
+                <h2>Company Profile</h2>
+                <p>Popogame is at the forefront of drone technology, a company founded on the belief that the sky is not the limit, but a new frontier for innovation. Established by a team of visionary engineers and aviation enthusiasts, our mission is to empower individuals and industries with sophisticated, reliable, and user-friendly aerial solutions. We envision a world where intelligent flight seamlessly integrates into daily life, enhancing creativity, efficiency, and discovery.</p>
+                <p>Our journey began with a simple idea: to make advanced aerial technology accessible and impactful. From our state-of-the-art R&D labs, we continuously push the boundaries of what's possible, investing heavily in artificial intelligence, autonomous navigation, and sustainable design. Popogame is more than a drone manufacturer; we are architects of aerial experiences, dedicated to crafting tools that transform perspectives and unlock new potentials. Join us as we soar towards a future powered by smarter flight.</p>
+                <p>We pride ourselves on our relentless pursuit of excellence, ethical manufacturing, and a global community-first approach. At Popogame, every drone is a testament to our passion for innovation and our commitment to elevating your aerial journey.</p>
             </div>
         </section>
 
-        <section id="support" class="support-section">
+        <section id="services" class="section-padding">
             <div class="container">
-                <h2 class="section-title">Partner Services & Strategy</h2>
-                <div class="support-grid">
-                    <div class="support-item">
-                        <i class="icon fas fa-handshake"></i>
-                        <h3>Customized OEM/ODM</h3>
-                        <p>We offer fully customized, regulation-friendly solutions for strategic partners, enabling rapid product rollout and brand differentiation.</p>
-                        <a href="#" class="btn-text">Learn More &rarr;</a>
-                    </div>
-                    <div class="support-item">
-                        <i class="icon fas fa-shuttle-van"></i>
-                        <h3>Dependable Supply Chain</h3>
-                        <p>Leveraging world-class production bases that serve brands like Apple and Tesla, ensuring quality and business continuity.</p>
-                        <a href="#" class="btn-text">Supply Chain Info &rarr;</a>
-                    </div>
-                    <div class="support-item">
-                        <i class="icon fas fa-chart-line"></i>
-                        <h3>Marketing & Retail Support</h3>
-                        <p>From KOL influencer marketing to in-shop visibility enhancements, we work with you to increase market share and profit margins.</p>
-                        <a href="#" class="btn-text">Partner Program &rarr;</a>
-                    </div>
-                </div>
+                <h2>Services & Support</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 60px; color: var(--light-gray);">At Popogame, our commitment extends far beyond delivering cutting-edge drones; we are dedicated to ensuring a seamless and satisfying experience for every customer. Our comprehensive Services & Support ecosystem is designed to keep you flying confidently and creatively.</p>
+
+                <ul class="service-list">
+                    <li>
+                        <h3>Technical Assistance</h3>
+                        <p>Access to a team of expert technicians ready to troubleshoot, guide, and resolve any operational queries via phone, email, or live chat.</p>
+                    </li>
+                    <li>
+                        <h3>Warranty & Repairs</h3>
+                        <p>Clear warranty policies and efficient repair services conducted by certified specialists, ensuring your Popogame drone maintains peak performance.</p>
+                    </li>
+                    <li>
+                        <h3>Online Knowledge Base</h3>
+                        <p>An extensive library of tutorials, FAQs, user manuals, and firmware updates available 24/7 on `popogametech.com/support`.</p>
+                    </li>
+                    <li>
+                        <h3>Community Forums</h3>
+                        <p>Engage with other Popogame users, share tips, and get insights from a vibrant global community of drone enthusiasts.</p>
+                    </li>
+                    <li>
+                        <h3>Training Resources</h3>
+                        <p>Optional workshops and online courses to help you master advanced flight techniques and fully utilize your drone's capabilities.</p>
+                    </li>
+                </ul>
+                <p style="text-align: center; max-width: 800px; margin: 60px auto 0; color: var(--light-gray);">We believe in proactive support and continuous improvement, driven by your feedback. Popogame is more than a product; it's a partnership, and your success in the skies is our ultimate goal. Fly with confidence, supported by Popogame.</p>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Veritas Tech. All rights reserved. | Unlocking Boundless Creativity.</p>
+            <p>&copy; 2023 Popogame. All rights reserved.</p>
+            <p>Designed with passion for flight.</p>
+            <div class="social-links">
+                <!-- Placeholder for social media icons, replace with actual SVG/Font Awesome if needed -->
+                <a href="#" aria-label="Facebook"><img src="https://via.placeholder.com/24/f0f0f0/007bff?text=F" alt="Facebook"></a>
+                <a href="#" aria-label="Twitter"><img src="https://via.placeholder.com/24/f0f0f0/007bff?text=T" alt="Twitter"></a>
+                <a href="#" aria-label="Instagram"><img src="https://via.placeholder.com/24/f0f0f0/007bff?text=I" alt="Instagram"></a>
+            </div>
         </div>
     </footer>
 
-    <script src="https://kit.fontawesome.com/YOUR_FONT_AWESOME_KIT_CODE.js" crossorigin="anonymous"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    const headerOffset = document.querySelector('.header').offsetHeight; // Get header height
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                    const offsetPosition = elementPosition - headerOffset - 20; // Adjust for header and a little padding
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+
+                // Add active class to current nav item (optional, for visual feedback)
+                document.querySelectorAll('.nav-list a').forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Set initial active class based on URL hash if any
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                const initialActiveLink = document.querySelector(`.nav-list a[href="${window.location.hash}"]`);
+                if (initialActiveLink) {
+                    initialActiveLink.classList.add('active');
+                    // Scroll to hash target if present on load, after page fully renders
+                    setTimeout(() => {
+                        const targetElement = document.querySelector(window.location.hash);
+                        if (targetElement) {
+                             const headerOffset = document.querySelector('.header').offsetHeight;
+                            const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                            const offsetPosition = elementPosition - headerOffset - 20;
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: "smooth"
+                            });
+                        }
+                    }, 100); // Small delay to ensure layout is stable
+                }
+            }
+        });
+    </script>
 </body>
 </html>
