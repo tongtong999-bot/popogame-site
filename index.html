@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Popogame - Elevating Your Perspective</title>
     <meta name="description" content="Discover Popogame's cutting-edge Photography Equipment technology. Elevate your perspective with our innovative products and unparalleled aerial solutions.">
-    <link rel="icon" href="https://via.placeholder.com/32/007bff/FFFFFF?text=P" type="image/x-icon"> <!-- Placeholder Favicon, if you have a .png favicon, change this line too -->
+    <link rel="icon" href="images/favicon.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         /* CSS will go here */
@@ -129,6 +130,10 @@
             letter-spacing: 1px;
         }
 
+        .logo:hover {
+            color: var(--accent-color);
+        }
+
         .nav-list {
             list-style: none;
             display: flex;
@@ -174,7 +179,7 @@
             justify-content: center;
             text-align: center;
             overflow: hidden;
-            background-color: var(--dark-gray); /* Fallback */
+            background-color: var(--dark-gray);
         }
 
         .hero::before {
@@ -184,10 +189,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('images/hero-drone.png'); /* Original: hero-drone.png, keeping for consistency in image names as it's more about "aerial" than just "Photography Equipment" */
+            background-image: url('images/hero-drone.png');
             background-size: cover;
             background-position: center;
-            filter: brightness(0.6); /* Darken image for better text contrast */
+            filter: brightness(0.6);
             z-index: 1;
         }
 
@@ -223,56 +228,17 @@
             background-color: var(--primary-bg);
         }
 
-        /* Product Overview */
-        #products h2 {
-            margin-bottom: 60px;
+        .company-name {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 12px;
         }
 
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .product-card {
-            background-color: var(--primary-bg);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        section:nth-child(even) .product-card {
-             background-color: var(--secondary-bg);
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            object-position: center;
-            border-bottom: 1px solid var(--dark-gray);
-        }
-
-        .product-card-content {
-            padding: 25px;
-        }
-
-        .product-card-content h3 {
-            font-size: 1.6em;
-            margin-bottom: 10px;
-        }
-
-        .product-card-content p {
-            font-size: 0.95em;
+        .company-address {
+            font-size: 1.1em;
             color: var(--light-gray);
-            margin-bottom: 0;
+            margin-bottom: 30px;
         }
 
         /* Company Profile */
@@ -378,6 +344,143 @@
             margin-bottom: 0;
         }
 
+        /* Download */
+        #download {
+            position: relative;
+            background-image: url('images/explorer-drone2.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        #download::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(10, 10, 10, 0.82) 0%, rgba(26, 26, 26, 0.88) 100%);
+            z-index: 1;
+        }
+
+        #download .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        #download h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .download-intro {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 60px;
+            color: var(--light-gray);
+        }
+
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .download-card {
+            background-color: rgba(26, 26, 26, 0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 12px;
+            padding: 36px 28px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .download-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+            border-color: rgba(0, 123, 255, 0.35);
+        }
+
+        .download-card h3 {
+            font-size: 1.2em;
+            margin-bottom: 24px;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .download-qr {
+            width: 148px;
+            height: 148px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 24px;
+        }
+
+        .download-qr img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .download-icon {
+            width: 148px;
+            height: 148px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 123, 255, 0.1);
+            border-radius: 10px;
+            margin-bottom: 24px;
+            font-size: 1.4em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+        }
+
+        .download-card p {
+            color: var(--light-gray);
+            font-size: 0.95em;
+            margin-bottom: 24px;
+            flex: 1;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border: 1px solid var(--accent-color);
+            border-radius: 5px;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+        }
+
+        .service-list a {
+            color: var(--accent-color);
+        }
+
+        .footer a {
+            color: var(--accent-color);
+        }
+
         /* Footer */
         .footer {
             background-color: var(--primary-bg);
@@ -430,11 +533,8 @@
             .section-padding {
                 padding: 60px 0;
             }
-            .product-grid {
+            .download-grid {
                 grid-template-columns: 1fr;
-            }
-            .product-card {
-                margin: 0 auto;
                 max-width: 400px;
             }
         }
@@ -465,12 +565,12 @@
 
     <header class="header">
         <div class="container">
-            <div class="logo">Popogame</div>
+            <a href="#home" class="logo">Popogame</a>
             <nav>
                 <ul class="nav-list">
-                    <li><a href="#products">Products</a></li>
                     <li><a href="#company">Company</a></li>
                     <li><a href="#services">Support</a></li>
+                    <li><a href="#download">Download</a></li>
                 </ul>
             </nav>
         </div>
@@ -481,39 +581,7 @@
             <div class="hero-content">
                 <h1>Elevate Your Perspective with Popogame Photography Equipment</h1>
                 <p>Experience the future of imaging with cutting-edge technology and breathtaking aerial capabilities.</p>
-                <a href="#products" class="btn">Explore Our Photography Equipment</a>
-            </div>
-        </section>
-
-        <section id="products" class="section-padding">
-            <div class="container text-center">
-                <h2>Product Overview</h2>
-                <p style="max-width: 800px; margin: 0 auto 60px; color: var(--light-gray);">Welcome to Popogame, where the future of imaging is taking off. Our Photography Equipment is meticulously engineered to redefine possibilities, blending cutting-edge AI, superior optics, and intuitive design. From professional cinematography and industrial inspection to exhilarating aerial exploration, Popogame Photography Equipment delivers unparalleled performance and breathtaking imagery.</p>
-
-                <div class="product-grid">
-                    <div class="product-card">
-                        <img src="images/aerox-drone.png" alt="Popogame AeroX Photography Equipment"> <!-- Updated alt text -->
-                        <div class="product-card-content">
-                            <h3>Popogame AeroX</h3>
-                            <p>The flagship professional cinematic Photography Equipment, offering 8K stabilized video and 360-degree obstacle sensing.</p>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <img src="images/explorer-drone.png" alt="Popogame Explorer Photography Equipment"> <!-- Updated alt text -->
-                        <div class="product-card-content">
-                            <h3>Popogame Explorer</h3>
-                            <p>A rugged, compact Photography Equipment designed for adventurers, featuring extended operational time and resilient construction for any terrain.</p>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <img src="images/visionary-drone.png" alt="Popogame Visionary Photography Equipment"> <!-- Updated alt text -->
-                        <div class="product-card-content">
-                            <h3>Popogame Visionary</h3>
-                            <p>An intelligent inspection Photography Equipment with thermal imaging capabilities and precision mapping for industrial applications.</p>
-                        </div>
-                    </div>
-                </div>
-                <p style="max-width: 800px; margin: 60px auto 0; color: var(--light-gray);">At Popogame, innovation isn't just a word; it's our core principle. We integrate advanced sensor technology, real-time data processing, and robust materials to ensure reliability and precision in every operation. Our commitment is to provide you with tools that are not only powerful but also incredibly easy to master, allowing you to focus on capturing the extraordinary. Discover a world unlocked from above, with Popogame leading the way.</p>
+                <a href="https://www.amazon.com/dp/B0H3Q9MK1G" class="btn" target="_blank" rel="noopener">Buy on Amazon</a>
             </div>
         </section>
 
@@ -533,35 +601,66 @@
 
                 <ul class="service-list">
                     <li>
+                        <h3>After-Sales Support</h3>
+                        <p>For warranty, repairs, and product assistance, contact us at <a href="mailto:after-sales@popogametech.com">after-sales@popogametech.com</a>.</p>
+                    </li>
+                    <li>
                         <h3>Technical Assistance</h3>
-                        <p>Access to a team of expert technicians ready to troubleshoot, guide, and resolve any operational queries via phone, email, or live chat.</p>
+                        <p>Our support team is ready to troubleshoot, guide, and resolve operational queries via email.</p>
                     </li>
                     <li>
                         <h3>Warranty & Repairs</h3>
-                        <p>Clear warranty policies and efficient repair services conducted by certified specialists, ensuring your Popogame Photography Equipment maintains peak performance.</p>
+                        <p>Clear warranty policies and efficient repair services to keep your Popogame equipment performing at its best.</p>
                     </li>
                     <li>
-                        <h3>Online Knowledge Base</h3>
-                        <p>An extensive library of tutorials, FAQs, user manuals, and firmware updates available 24/7 on `popogametech.com/support`.</p>
-                    </li>
-                    <li>
-                        <h3>Community Forums</h3>
-                        <p>Engage with other Popogame users, share tips, and get insights from a vibrant global community of Photography Equipment enthusiasts.</p>
-                    </li>
-                    <li>
-                        <h3>Training Resources</h3>
-                        <p>Optional workshops and online courses to help you master advanced capturing techniques and fully utilize your Photography Equipment's capabilities.</p>
+                        <h3>User Manuals & Downloads</h3>
+                        <p>Access app downloads, user manuals, and firmware resources in the <a href="#download">Download</a> section.</p>
                     </li>
                 </ul>
                 <p style="text-align: center; max-width: 800px; margin: 60px auto 0; color: var(--light-gray);">We believe in proactive support and continuous improvement, driven by your feedback. Popogame is more than a product; it's a partnership, and your success in capturing incredible moments is our ultimate goal. Capture with confidence, supported by Popogame.</p>
+            </div>
+        </section>
+
+        <section id="download" class="section-padding">
+            <div class="container">
+                <h2>Download</h2>
+                <p class="download-intro">Get the Popogame app and user manual for your device.</p>
+
+                <div class="download-grid">
+                    <div class="download-card">
+                        <h3>Android</h3>
+                        <div class="download-qr">
+                            <img src="images/qr-android.png?v=2" alt="Android APP QR Code">
+                        </div>
+                        <p>Scan to download or tap the link below.</p>
+                        <a href="https://drive.google.com/uc?export=download&id=1CWH2J8i1cS3GM4VAVhx6kIkUHbxiu94z" class="download-btn" target="_blank" rel="noopener">Download APK</a>
+                    </div>
+
+                    <div class="download-card">
+                        <h3>iOS</h3>
+                        <div class="download-qr">
+                            <img src="images/qr-ios.png?v=2" alt="iOS APP QR Code">
+                        </div>
+                        <p>Scan to download or tap the button below.</p>
+                        <a href="https://apps.apple.com/us/app/id6772163041" class="download-btn" target="_blank" rel="noopener">App Store</a>
+                    </div>
+
+                    <div class="download-card">
+                        <h3>User Manual</h3>
+                        <div class="download-icon" aria-hidden="true">PDF</div>
+                        <p>Popogame Nano Quick Start Guide v1.0</p>
+                        <a href="https://drive.google.com/uc?export=download&id=10wrW76AlWYUn40RwkV_7PUHeexegQrGA" class="download-btn" target="_blank" rel="noopener">Download PDF</a>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2023 Popogame. All rights reserved.</p>
-            <p>Designed with passion for imaging.</p>
+            <p>&copy; 2026 JIEKEE TRADING COMPANY LIMITED. All rights reserved.</p>
+            <p>新界屯門青海圍2號萬寶大厦1樓84號</p>
+            <p>After-Sales: <a href="mailto:after-sales@popogametech.com">after-sales@popogametech.com</a></p>
         </div>
     </footer>
 
