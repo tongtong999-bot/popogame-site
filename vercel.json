@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/download-app", "destination": "/download-app/index.html" }
+  ],
+  "redirects": [
+    { "source": "/download-ap", "destination": "/download-app", "permanent": true }
+  ]
+}

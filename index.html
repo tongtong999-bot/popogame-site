@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Popogame - Elevating Your Perspective</title>
     <meta name="description" content="Discover Popogame's cutting-edge Photography Equipment technology. Elevate your perspective with our innovative products and unparalleled aerial solutions.">
-    <link rel="icon" href="images/favicon.png" type="image/png" sizes="32x32">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="icon" href="images/favicon/favicon.ico" sizes="any">
+    <link rel="icon" href="images/favicon/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="images/favicon/favicon-16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         /* CSS will go here */
@@ -123,15 +125,18 @@
         }
 
         .logo {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: var(--text-color);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
         }
 
-        .logo:hover {
-            color: var(--accent-color);
+        .logo img {
+            height: 28px;
+            width: auto;
+            display: block;
+        }
+
+        .logo:hover img {
+            opacity: 0.85;
         }
 
         .nav-list {
@@ -189,10 +194,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('images/hero-drone.png');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('images/background1.jpg');
             background-size: cover;
             background-position: center;
-            filter: brightness(0.6);
             z-index: 1;
         }
 
@@ -244,10 +248,10 @@
         /* Company Profile */
         #company {
             position: relative;
-            background-image: url('images/company-background.png'); /* Updated to .png */
+            background-image: url('images/company-background.png');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Parallax effect */
+            background-attachment: fixed;
             color: var(--text-color);
             overflow: hidden;
         }
@@ -281,7 +285,7 @@
 
         /* Services & Support */
         #services {
-             background-image: url('images/services-background.png'); /* Updated to .png */
+            background-image: url('images/company-background.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -347,7 +351,7 @@
         /* Download */
         #download {
             position: relative;
-            background-image: url('images/explorer-drone2.png');
+            background-image: url('images/company-background.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -540,8 +544,8 @@
         }
 
         @media (max-width: 480px) {
-            .logo {
-                font-size: 1.5em;
+            .logo img {
+                height: 22px;
             }
             .nav-list li {
                 margin: 0 10px 10px;
@@ -565,12 +569,12 @@
 
     <header class="header">
         <div class="container">
-            <a href="#home" class="logo">Popogame</a>
+            <a href="index.html" class="logo"><img src="images/logo.png" alt="Popogame"></a>
             <nav>
                 <ul class="nav-list">
                     <li><a href="#company">Company</a></li>
                     <li><a href="#services">Support</a></li>
-                    <li><a href="#download">Download</a></li>
+                    <li><a href="download-app/index.html">Download</a></li>
                 </ul>
             </nav>
         </div>
@@ -614,7 +618,7 @@
                     </li>
                     <li>
                         <h3>User Manuals & Downloads</h3>
-                        <p>Access app downloads, user manuals, and firmware resources in the <a href="#download">Download</a> section.</p>
+                        <p>Access app downloads, user manuals, and firmware resources on the <a href="download-app/index.html">Download</a> page.</p>
                     </li>
                 </ul>
                 <p style="text-align: center; max-width: 800px; margin: 60px auto 0; color: var(--light-gray);">We believe in proactive support and continuous improvement, driven by your feedback. Popogame is more than a product; it's a partnership, and your success in capturing incredible moments is our ultimate goal. Capture with confidence, supported by Popogame.</p>
