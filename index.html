@@ -32,6 +32,8 @@
 
         html {
             scroll-behavior: smooth;
+            width: 100%;
+            overflow-x: hidden;
         }
 
         body {
@@ -39,8 +41,14 @@
             color: var(--text-color);
             background-color: var(--primary-bg);
             line-height: 1.6;
+            width: 100%;
+            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+        }
+
+        main {
+            width: 100%;
         }
 
         /* Utility Classes */
@@ -179,57 +187,61 @@
         }
 
 
-        /* Hero Section */
+        /* Hero — same pattern as #company / #download */
         .hero {
             position: relative;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-            background-color: var(--dark-gray);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('images/background1.jpg');
+            background-image: url('images/hero-background.jpg');
             background-size: cover;
             background-position: center;
-            z-index: 1;
+            background-attachment: scroll;
+            overflow: hidden;
+            min-height: calc(100svh - 72px);
+            display: flex;
+            align-items: center;
+            padding: 80px 0;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 80px;
         }
 
         .hero-content {
-            position: relative;
-            z-index: 2;
+            max-width: 460px;
             color: var(--text-color);
-            max-width: 800px;
-            padding: 20px;
         }
 
         .hero-content h1 {
-            font-size: 4.5em;
-            margin-bottom: 20px;
-            line-height: 1.1;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            font-size: 2.8em;
+            margin-bottom: 16px;
+            line-height: 1.2;
+            font-weight: 700;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
         }
 
         .hero-content p {
-            font-size: 1.5em;
-            margin-bottom: 40px;
+            font-size: 1.1em;
+            margin-bottom: 32px;
             font-weight: 300;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+            line-height: 1.6;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
         }
 
         /* Section Styling */
         section {
             background-color: var(--secondary-bg);
-            margin-bottom: 2px; /* Small separator */
+        }
+
+        section:not(.hero) {
+            margin-bottom: 2px;
+        }
+
+        section.hero {
+            margin-bottom: 0;
         }
 
         section:nth-child(even) {
@@ -255,7 +267,7 @@
             background-image: url('images/company-background.png');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-attachment: scroll;
             color: var(--text-color);
             overflow: hidden;
         }
@@ -292,7 +304,7 @@
             background-image: url('images/company-background.png');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-attachment: scroll;
             color: var(--text-color);
             overflow: hidden;
             position: relative;
@@ -355,10 +367,10 @@
         /* Download */
         #download {
             position: relative;
-            background-image: url('images/company-background.png');
+            background-image: url('images/download-background.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-attachment: scroll;
             overflow: hidden;
         }
 
@@ -506,10 +518,13 @@
         /* Responsive Design */
         @media (max-width: 992px) {
             .hero-content h1 {
-                font-size: 3.5em;
+                font-size: 2.6em;
             }
             .hero-content p {
-                font-size: 1.2em;
+                font-size: 1em;
+            }
+            .hero-inner {
+                padding: 0 40px;
             }
             h1 { font-size: 3em; }
             h2 { font-size: 2.2em; }
@@ -567,14 +582,62 @@
             }
 
             .hero {
-                height: 70vh;
+                width: 100%;
+                min-height: auto;
+                padding: 0;
+                align-items: stretch;
+                justify-content: stretch;
+                background-color: #090d12;
+                background-image: url('images/hero-background-h.png');
+                background-size: cover;
+                background-position: center top;
+                background-repeat: no-repeat;
             }
+
+            .hero::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.04) 36%, rgba(5, 8, 12, 0.48) 60%, rgba(5, 8, 12, 0.76) 100%);
+                z-index: 1;
+                pointer-events: none;
+            }
+
+            .hero-inner {
+                min-height: clamp(620px, calc(100dvh - 118px), 740px);
+                min-height: clamp(620px, calc(100svh - 118px), 740px);
+                display: flex;
+                align-items: flex-end;
+                padding: 0 24px 52px;
+                margin-top: 0;
+            }
+
+            .hero-content {
+                max-width: 420px;
+                margin: 0 auto;
+                text-align: center;
+            }
+
             .hero-content h1 {
-                font-size: 2.5em;
+                font-size: 1.48em;
+                line-height: 1.24;
+                margin-bottom: 12px;
             }
+
             .hero-content p {
-                font-size: 1em;
+                font-size: 0.88em;
+                line-height: 1.55;
+                margin-bottom: 20px;
+                max-width: 100%;
             }
+
+            .hero .btn {
+                width: auto;
+                min-width: 190px;
+                padding: 13px 24px;
+                text-align: center;
+            }
+
             h1 { font-size: 2.5em; }
             h2 { font-size: 1.8em; }
             .section-padding {
@@ -592,12 +655,34 @@
                 font-size: 0.82em;
             }
 
+            .hero {
+                padding: 0;
+            }
+
+            .hero::after {
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.04) 36%, rgba(5, 8, 12, 0.5) 60%, rgba(5, 8, 12, 0.78) 100%);
+            }
+
+            .hero-inner {
+                min-height: clamp(600px, calc(100dvh - 112px), 700px);
+                min-height: clamp(600px, calc(100svh - 112px), 700px);
+                padding: 0 20px 44px;
+            }
+
             .hero-content h1 {
-                font-size: 2em;
+                font-size: 1.28em;
             }
+
             .hero-content p {
-                font-size: 0.9em;
+                font-size: 0.82em;
+                max-width: 100%;
             }
+
+            .hero .btn {
+                width: 100%;
+                min-width: 0;
+            }
+
             h1 { font-size: 2em; }
             h2 { font-size: 1.5em; }
             .btn {
@@ -624,10 +709,12 @@
 
     <main>
         <section class="hero" id="home">
-            <div class="hero-content">
-                <h1>Elevate Your Perspective with Popogame Photography Equipment</h1>
-                <p>Experience the future of imaging with cutting-edge technology and breathtaking aerial capabilities.</p>
-                <a href="https://www.amazon.com/dp/B0H3Q9MK1G" class="btn" target="_blank" rel="noopener">Buy on Amazon</a>
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <h1>Elevate Your Perspective with Popogame Photography Equipment</h1>
+                    <p>Experience the future of imaging with cutting-edge technology and breathtaking aerial capabilities.</p>
+                    <a href="https://www.amazon.com/dp/B0H3Q9MK1G" class="btn" target="_blank" rel="noopener">Buy on Amazon</a>
+                </div>
             </div>
         </section>
 
