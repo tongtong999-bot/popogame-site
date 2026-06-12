@@ -174,6 +174,10 @@
              color: var(--text-color);
         }
 
+        .nav-list a.active {
+            color: var(--text-color);
+        }
+
 
         /* Hero Section */
         .hero {
@@ -612,7 +616,7 @@
                 <ul class="nav-list">
                     <li><a href="#company">Company</a></li>
                     <li><a href="#services">Support</a></li>
-                    <li><a href="download-app/index.html">Download</a></li>
+                    <li><a href="#download">Download</a></li>
                 </ul>
             </nav>
         </div>
@@ -656,7 +660,7 @@
                     </li>
                     <li>
                         <h3>User Manuals & Downloads</h3>
-                        <p>Access app downloads, user manuals, and firmware resources on the <a href="download-app/index.html">Download</a> page.</p>
+                        <p>Access app downloads, user manuals, and firmware resources in the <a href="#download">Download</a> section.</p>
                     </li>
                 </ul>
                 <p style="text-align: center; max-width: 800px; margin: 60px auto 0; color: var(--light-gray);">We believe in proactive support and continuous improvement, driven by your feedback. Popogame is more than a product; it's a partnership, and your success in capturing incredible moments is our ultimate goal. Capture with confidence, supported by Popogame.</p>
@@ -707,50 +711,54 @@
     </footer>
 
     <script>
+        function scrollToSection(selector, smooth) {
+            const targetElement = document.querySelector(selector);
+            if (!targetElement) return;
+
+            const headerOffset = document.querySelector('.header').offsetHeight;
+            const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = elementPosition - headerOffset - 20;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: smooth ? 'smooth' : 'auto'
+            });
+        }
+
+        function setActiveNav(href) {
+            document.querySelectorAll('.nav-list a').forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === href);
+            });
+        }
+
+        function isDownloadAppPath() {
+            const path = window.location.pathname.replace(/\/+$/, '');
+            return path === '/download-app' || path.endsWith('/download-app');
+        }
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
 
                 const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-
-                if (targetElement) {
-                    const headerOffset = document.querySelector('.header').offsetHeight; // Get header height
-                    const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-                    const offsetPosition = elementPosition - headerOffset - 20; // Adjust for header and a little padding
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
-                    });
-                }
-
-                // Add active class to current nav item (optional, for visual feedback)
-                document.querySelectorAll('.nav-list a').forEach(link => link.classList.remove('active'));
-                this.classList.add('active');
+                scrollToSection(targetId, true);
+                setActiveNav(targetId);
             });
         });
 
-        // Set initial active class based on URL hash if any
         window.addEventListener('DOMContentLoaded', () => {
+            if (isDownloadAppPath()) {
+                setActiveNav('#download');
+                setTimeout(() => scrollToSection('#download', false), 100);
+                return;
+            }
+
             if (window.location.hash) {
                 const initialActiveLink = document.querySelector(`.nav-list a[href="${window.location.hash}"]`);
                 if (initialActiveLink) {
                     initialActiveLink.classList.add('active');
-                    // Scroll to hash target if present on load, after page fully renders
-                    setTimeout(() => {
-                        const targetElement = document.querySelector(window.location.hash);
-                        if (targetElement) {
-                             const headerOffset = document.querySelector('.header').offsetHeight;
-                            const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-                            const offsetPosition = elementPosition - headerOffset - 20;
-                            window.scrollTo({
-                                top: offsetPosition,
-                                behavior: "smooth"
-                            });
-                        }
-                    }, 100); // Small delay to ensure layout is stable
+                    setTimeout(() => scrollToSection(window.location.hash, true), 100);
                 }
             }
         });
